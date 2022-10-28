@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize')
 const db = require('../tools/database')
 
-const Categories = db.define('categories', {
+const Types = db.define('types', {
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -11,10 +11,10 @@ const Categories = db.define('categories', {
     name: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: true
+        unique: true 
     }
 }, {
     timestamps: false
 })
 
-module.exports = Categories
+module.exports = Types
