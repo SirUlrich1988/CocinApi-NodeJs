@@ -34,6 +34,8 @@ npm i uuid
 npm install dotenv --save
 npm i --save sequelize
 npm i --save pg pg-hstore # postgres
+npm i cors
+npm i pg pg-hstore
 
 npm i -D nodemon
 
