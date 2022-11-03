@@ -36,6 +36,8 @@ npm i --save sequelize
 npm i --save pg pg-hstore # postgres
 npm i cors
 npm i pg pg-hstore
+npm i -D mocha chai chai-http
+npm i @faker-js/faker --save-dev
 
 npm i -D nodemon
 

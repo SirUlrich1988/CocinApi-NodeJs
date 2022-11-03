@@ -9,7 +9,7 @@ const Ingredients = db.define('ingredients', {
         allowNull: false
     },
     name: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: false,
         unique: true
     },
@@ -23,7 +23,7 @@ const Ingredients = db.define('ingredients', {
         }
     },
     urlImg: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         field: "url_img",
         validate: {
           isUrl: true,

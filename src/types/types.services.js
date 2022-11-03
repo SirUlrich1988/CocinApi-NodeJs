@@ -1,7 +1,7 @@
-const categoryControllers = require('./categories.controllers')
+const typeControllers = require('./types.controller')
 
-const getAllCategories = (req, res) => {
-    categoryControllers.showAllCategories()
+const getAllTypes = (req, res) => {
+    typeControllers.getAllTypes()
         .then(data => {
             res.status(200).json(data)
         })
@@ -10,9 +10,9 @@ const getAllCategories = (req, res) => {
         })
 }
 
-const getCategoryById = (req, res) => {
+const getTypeById = (req, res) => {
     const id = req.params.id
-    categoryControllers.showCategoryById(id)
+    typeControllers.getTypeById(id)
         .then(data => {
             if(data){
                 res.status(200).json(data)
@@ -25,11 +25,11 @@ const getCategoryById = (req, res) => {
         })
 }
 
-const postCategory = (req, res) => {
+const postType = (req, res) => {
     const { name } = req.body
 
     if(name){
-        categoryControllers.createCategory(name)
+        typeControllers.createType(name)
             .then(data => {
                 res.status(201).json(data)
             })
@@ -46,9 +46,9 @@ const postCategory = (req, res) => {
     }
 }
 
-const destroyCategory = (req, res) => {
+const deleteType = (req, res) => {
     const id = req.params.id 
-    categoryControllers.deleteCategory(id)
+    typeControllers.deleteType(id)
         .then(data => {
             if(data){
                 res.status(204).json()
@@ -63,8 +63,8 @@ const destroyCategory = (req, res) => {
 }
 
 module.exports = {
-    getAllCategories,
-    getCategoryById,
-    postCategory,
-    destroyCategory
+    getAllTypes,
+    getTypeById,
+    postType,
+    deleteType
 }

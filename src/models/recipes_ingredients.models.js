@@ -1,7 +1,8 @@
-const { DataTypes } = require('sequelize')
+const {DataTypes} = require('sequelize')
+
 const db = require('../tools/database')
-const Recipes = require('../models/recipes.models')
-const Ingredients = require('../models/ingredients.models')
+const Recipes = require('./recipes.models')
+const Ingredients = require('./ingredients.models')
 
 
 const RecipesIngredients = db.define('recipes_ingredients', {
@@ -23,10 +24,10 @@ const RecipesIngredients = db.define('recipes_ingredients', {
             model: Recipes
         }
     },
-    ingredientsId: {
+    ingredientId: {
         type: DataTypes.UUID,
         allowNull: false,
-        field: 'ingredients:id',
+        field: 'ingredient_id',
         references: {
             key: 'id',
             model: Ingredients

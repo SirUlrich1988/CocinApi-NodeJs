@@ -6,12 +6,12 @@ const categoryServices = require('./categories.services')
 //? /:id
 
 
-router.route('/')
+router.route("/")
     .get(categoryServices.getAllCategories)
     .post(categoryServices.postCategory) //TODO hacerla protegida por administrador
 
-router.route('/:id')
+router.route("/:id")
     .get(categoryServices.getCategoryById)
-    .delete(categoryServices.deleteCategory) //TODO hacerla protegida por administrador
+    .delete(categoryServices.destroyCategory) //TODO hacerla protegida por administrador
 
-module.exports = router
+    module.exports = router;

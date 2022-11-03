@@ -67,8 +67,10 @@ const patchRecipe = (req, res)=> {
     .catch(err => {
         res.status(400).json({message:err.message})
     })
+}
 
-    const deleteRecipe = (req, res) => {
+
+    const destroyRecipe = (req, res) => {
         const id = req.params.recipe_id
     
         recipeControllers.deleteRecipe(id)
@@ -83,12 +85,12 @@ const patchRecipe = (req, res)=> {
                 res.status(400).json({message: err.message})
             })
     }
-}
+
 
 module.exports = {
     getAllRecipes,
     getRecipeById,
     createNewRecipe,
-    updateRecipe,
-    deleteRecipe
+    patchRecipe,
+    destroyRecipe
 }
