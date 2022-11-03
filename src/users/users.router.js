@@ -19,20 +19,6 @@ router.get('/', passport.authenticate('jwt', {session: false}), userServices.get
 //! router.put('/:id')
 //! router.delete('/:id')
 // - esto siempre va primero - //
-router.route('/:id')
-.get(userServices.getUserById)
-.patch(
-    passport.authenticate('jwt', {session: false}),
-    adminValidate,
-    userServices.patchUser)
-
-.delete(
-    passport.authenticate('jwt', {session: false}),
-    adminValidate,
-    userServices.deleteUser)
-
-// - esto se crea despues - //
-//! /api/v1/users/:id
 router.route('/me')
     .get(
         passport.authenticate('jwt', {session: false}),
@@ -46,4 +32,19 @@ router.route('/me')
         passport.authenticate('jwt', {session: false}),
         userServices.deleteMyUser)
 
+// - esto se crea despues - //
+//! /api/v1/users/:id
+
+router.route('/:id')
+.get(userServices.getUserById)
+.patch(
+    passport.authenticate('jwt', {session: false}),
+    adminValidate,
+    userServices.patchUser)
+
+.delete(
+    passport.authenticate('jwt', {session: false}),
+    adminValidate,
+    userServices.deleteUser)
+    
 module.exports = router
