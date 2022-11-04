@@ -2,6 +2,8 @@ const router = require('express').Router()
 const passport = require('passport')
 const adminValidate = require('../middlewares/role.middleware')
 const userServices = require('./users.services')
+const { getUserRecipes } = require('../recipes/recipes.services')
+
 
 require('../middlewares/auth.middleware')(passport)
 //? rutas raiz
@@ -34,6 +36,13 @@ router.route('/me')
 
 // - esto se crea despues - //
 //! /api/v1/users/:id
+
+// -- Ruta para obtener nuestras recetas -- //
+
+router.get('/me/my_recipes', 
+        passport.authenticate('jwt', {session: false}),
+        getUserRecipes
+)
 
 router.route('/:id')
 .get(userServices.getUserById)
